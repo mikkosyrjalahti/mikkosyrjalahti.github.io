@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    min-width: 180px;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    max-width: 150px;
+}
+
+.resistor-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.resistor-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.find-button {
+    background-color: #5a6af0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.find-button:hover {
+    background-color: #4857d6;
+}
+
+.parallel-button {
+    background-color: #9b59b6;
+}
+
+.parallel-button:hover {
+    background-color: #8e44ad;
+}
+
+.nearest-value {
+    font-size: 14px;
+    color: #666;
+    min-width: 130px;
+}
+
+.result-section {
+    background-color: #f0f7ff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#actualVoltage, #voltageError, #currentR1, #currentR2, #currentTotal {
+    font-weight: bold;
+    color: #0066cc;
+}
+
+.info-box {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #9b59b6;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.calculate-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.calculate-button:hover {
+    background-color: #218838;
+}
+
+.divider-diagram {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.diagram-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+    .input-group, .resistor-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    label {
+        margin-bottom: 5px;
+    }
+    
+    input, select {
+        max-width: 100%;
+        width: 100%;
+    }
+}

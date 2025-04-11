@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltage Regulator Feedback Divider Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Voltage Regulator Feedback Divider Calculator</h1>
+        
+        <div class="calculator-form">
+            <div class="input-group">
+                <label for="feedbackVoltage">Feedback Voltage (V_fb):</label>
+                <select id="feedbackVoltage">
+                    <option value="0.6">0.6V</option>
+                    <option value="0.8">0.8V</option>
+                    <option value="1.0">1.0V</option>
+                    <option value="1.18">1.18V LDL212</option>
+                    <option value="1.2" selected>1.2V</option>
+                    <option value="1.24">1.24V TLV431</option>
+                    <option value="1.25">1.25V LM317, LM337(neg)</option>
+                    <option value="2.5">2.50V TL431</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="targetVoltage">Target Output Voltage (V):</label>
+                <input type="number" id="targetVoltage" step="0.01" value="3.3" min="0">
+            </div>
+            
+            <div class="resistor-section">
+                <h2>Feedback Resistors (E96, 1-100kΩ)</h2>
+                
+                <div class="resistor-row">
+                    <div class="input-group">
+                        <label for="r1">R1 (upper):</label>
+                        <input type="number" id="r1" value="10000" min="1" max="100000">
+                        <button id="findR1" class="find-button">Find Best Match</button>
+                        <button id="findR1Parallel" class="find-button parallel-button">Add Parallel</button>
+                    </div>
+                    <div class="nearest-value" id="r1Nearest"></div>
+                </div>
+                
+                <div class="resistor-row">
+                    <div class="input-group">
+                        <label for="r2">R2 (lower):</label>
+                        <input type="number" id="r2" value="4700" min="1" max="100000">
+                        <button id="findR2" class="find-button">Find Best Match</button>
+                        <button id="findR2Parallel" class="find-button parallel-button">Add Parallel</button>
+                    </div>
+                    <div class="nearest-value" id="r2Nearest"></div>
+                </div>
+            </div>
+            <button id="calculate" class="calculate-button">Calculate</button>
+
+            <div class="result-section">
+                <h2>Results</h2>
+                <div class="result-row">
+                    <span>Actual Output Voltage:</span>
+                    <span id="actualVoltage">-</span>
+                </div>
+                <div class="result-row">
+                    <span>Error:</span>
+                    <span id="voltageError">-</span>
+                </div>
+                <div class="result-row">
+                    <span>Divider Current:</span>
+                    <span id="currentTotal">-</span>
+                </div>
+                <div class="info-box">
+                    <p><strong>Tip:</strong> Click "Add Parallel" to find a second resistor (1Ω-1MΩ) to connect in parallel with the current one to get closer to the target voltage.</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="divider-diagram">
+            <img src="regu.png" alt="Voltage Divider Diagram" class="diagram-image">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
